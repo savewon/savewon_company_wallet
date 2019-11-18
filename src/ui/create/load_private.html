@@ -1,0 +1,36 @@
+<template class="task-template">
+  <div id="load-private-modal" class="about modal">
+    <div class="about-wrapper">
+      <header class="about-header">
+        <img class="about-logo" src="assets/img/about.png" srcset="assets/img/about.png 1x, assets/img/about@2x.png 2x" alt="Electron API Demos">
+      </header>
+      <main class="about-sections">
+        <h1>지갑 가져오기</h1>
+        <h3>개인키 입력</h3>
+        <input type="text" id="privateInput" value="" placeholder="개인키를 입력해주세요.">
+
+        <section class="about-section about-code">
+          <h3>비밀번호 입력</h3>
+          <input type="password"  value="" id="inputPassword" placeholder="비밀번호 입력"><br><br>
+          <h3>비밀번호 확인 입력</h3>
+          <input type="password" value="" id="inputRePassword" placeholder="비밀번호 재입력"><br><br>
+          <label for="">비밀번호는 최소 한개이상의 숫자를 포함해야합니다.</label><br>
+          <label for="">최소 8개 글자를 사용해 주십시오.</label><br><br>
+        </section>
+        <section class="about-section about-code">
+          <div class="rainbow-button-wrapper">
+            <button id="loadButton" class="about-button Select-Load-Private-Done">입력완료</button>
+          </div>
+        </section>
+        <section class="about-section about-code">
+          <div class="rainbow-button-wrapper">
+            <button id="get-load" class="about-button Init-Modal-Back-Sub">뒤로가기</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script type="text/javascript">
+    require('./src/renderer/create/importwallet')
+  </script>
+</template>

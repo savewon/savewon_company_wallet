@@ -1,0 +1,27 @@
+<template class="task-template">
+  <section id="backup-section" class="section js-section u-category-menu">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
+          백업
+        </h1>
+        <h3>지갑정보 백업하기</h3>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+          <section class="about-section play-along">
+            <input type="password" id="backup_userpassword" name="" value="" placeholder="비밀번호 입력"><br><br>
+            <div class="rainbow-button-wrapper">
+              <button id="backupButton" class="about-button">확인</button>
+            </div>
+          </section>
+      </div>
+    </div>
+    <script type="text/javascript">
+      require('./src/renderer/backup/backup')
+    </script>
+  </section>
+</template>

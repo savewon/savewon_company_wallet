@@ -1,0 +1,38 @@
+<template class="task-template">
+  <section id="ipc-section" class="section js-section u-category-communication">
+
+    <div class="section-wrapper">
+      <h1>
+        <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-communication"></use></svg>
+        SAVEWON TOKEN 전송하기
+      </h1>
+        <table>
+          <tr>
+            <td style="width:120px;">받는 주소</td>
+            <td><input type="text" id="savewonSingleToAddress" value="" class="demo-input" style="width:100%;" placeholder="주소입력"></td>
+          </tr>
+          <tr>
+            <td style="width:120px;">수량</td>
+            <td><input type="text" id="savewonSingleMount" value="" class="demo-input" style="width:100%;" placeholder="수량입력"></td>
+          </tr>
+          <tr>
+            <td style="width:120px;">BlockHash번호</td>
+            <td><span class="text-response" style="width:100%;" id="savewonBlockHash"></span></td>
+          </tr>
+          <tr>
+            <td style="width:120px;">전송시예정가스</td>
+            <td><span class="text-response" style="width:100%;" id="savewonEstimateGas"></span></td>
+          </tr>
+        </table>
+        <br>
+        <button class="demo-button" type="button" id="savewonSingleSendButton" name="button">전송하기</button>
+    </div>
+
+
+    <script type="text/javascript">
+      // require('./src/renderer/transfer/etherTransaction')
+      require('./src/renderer/transfer/singleTransaction')
+      // require('./src/renderer/transfer/openexcelfile')
+    </script>
+  </section>
+</template>

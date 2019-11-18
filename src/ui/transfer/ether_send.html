@@ -1,0 +1,42 @@
+<template class="task-template">
+  <section id="ether-section" class="section js-section u-category-communication">
+
+    <div class="section-wrapper">
+      <h1>
+        <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-communication"></use></svg>
+        ETHEREUM 전송하기
+      </h1>
+      <table>
+        <tr>
+          <td style="width:120px;">받는 주소</td>
+          <td><input type="text" id="etherToAddress" value="" class="demo-input" style="width:100%;" placeholder="주소입력"></td>
+        </tr>
+        <tr>
+          <td style="width:120px;">수량</td>
+          <td><input type="text" id="etherMount" value="" class="demo-input" style="width:100%;" placeholder="수량입력"></td>
+        </tr>
+        <tr>
+          <td style="width:120px;">BlockHash번호</td>
+          <td><span class="text-response" style="width:100%;" id="etherBlockHash"></span></td>
+        </tr>
+        <tr>
+          <td style="width:120px;">전송시예정가스</td>
+          <td> <span class="text-response" id="etherEstimateGas"></td>
+        </tr>
+      </table>
+        <!-- 받는 주소 : <input type="text" id="etherToAddress" value="" class="demo-input" placeholder="주소입력"><br>
+        수량 : <input type="text" id="etherMount" value="" class="demo-input" placeholder="수량입력"><br>
+        수수료 : <input type="text" id="pee" value="" class="demo-input" placeholder="전송속도"><br>
+        <br>
+        blockHash : <span class="text-response" id="etherBlockHash"></span>
+        <br> -->
+        <br>
+        <button class="demo-button" type="button" id="sendEthereumButton" name="button">전송하기</button>
+    </div>
+
+
+    <script type="text/javascript">
+      require('./src/renderer/transfer/etherTransaction')
+    </script>
+  </section>
+</template>

@@ -1,0 +1,42 @@
+<template class="task-template">
+  <section id="multi-section" class="section js-section u-category-communication">
+
+    <div class="section-wrapper">
+      <h1>
+        <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-communication"></use></svg>
+        SAVEWON TOKEN 대량 전송
+      </h1>
+      <button class="demo-button" id="selectExcelButton">엑셀파일업로드</button>
+      <button class="demo-button" id="sendMultiButton">코인멀티전송</button>
+      <br>
+      <br>
+      <table>
+        <tr>
+          <td style="width:120px;">엑셀 경로</td>
+          <td> <span class="text-response" id="excelFilePath"></span></td>
+        </tr>
+        <tr>
+          <td style="width:120px;">blockHash 번호</td>
+          <td> <span class="text-response" id="savewonMultiBlockHash"></td>
+        </tr>
+        <tr>
+          <td style="width:120px;">전송시예정가스</td>
+          <td> <span class="text-response" id="savewonMultiEstimateGas"></td>
+        </tr>
+      </table>
+      <br>
+      <table id="multitable">
+        <tr>
+          <th>번호</th>
+          <th>이름</th>
+          <th>지갑주소</th>
+          <th>수량</th>
+        </tr>
+      </table>
+    </div>
+
+    <script type="text/javascript">
+      require('./src/renderer/transfer/multiTransaction')
+    </script>
+  </section>
+</template>
