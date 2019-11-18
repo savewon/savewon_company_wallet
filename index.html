@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/nativize.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/about.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/section.css">
+  <link rel="stylesheet" href="assets/css/demo.css">
+  <link rel="stylesheet" href="assets/css/github.css">
+
+  <!-- 초기화면 -->
+  <link rel="import" href="src/ui/create/init.html">
+
+  <!-- 유저확인 화면 -->
+  <link rel="import" href="src/ui/login.html">
+
+  <!-- 패스워드 -->
+  <link rel="import" href="src/ui/create/create_wallet.html">
+
+  <!-- 불러오기 -->
+  <link rel="import" href="src/ui/create/select_load.html">
+  <link rel="import" href="src/ui/create/load_mnemonic.html">
+  <link rel="import" href="src/ui/create/load_private.html">
+
+  <!-- 백업하기 -->
+  <link rel="import" href="src/ui/backup/wallet_backup.html">
+
+  <!-- 전송 -->
+  <link rel="import" href="src/ui/transfer/savewon_send.html">
+  <!-- 전송 -->
+  <link rel="import" href="src/ui/transfer/savewon_multi_send.html">
+  <!-- 전송 -->
+  <link rel="import" href="src/ui/transfer/ether_send.html">
+
+  <!-- 전송내역 -->
+  <link rel="import" href="src/ui/transactioninfo/transaction_list.html">
+
+</head>
+<body>
+
+  <nav class="nav js-nav">
+
+    <header class="nav-header">
+      <h1 class="nav-title">SaveWon <strong>Wallet</strong></h1>
+      <svg class="nav-header-icon"><use xlink:href="assets/img/icons.svg#icon-electron"></use></svg>
+    </header>
+
+    <header class="nav-header">
+      <h1 class="nav-title">Ethereum 주소</h1>
+        <p><strong id="etherAddress"></strong></p>
+      <br>
+
+      <h1 class="nav-title">Ethereum 보유량</h1>
+        <p><strong id="etherBalance">0</strong></p>
+      <br>
+
+      <h1 class="nav-title">SaveWon 보유량</h1>
+        <p><strong id="savewonBalance">0</strong></p>
+
+      <div class="">
+        <button class="demo-button" id="copyAddressButton">주소복사</button>
+        <button class="demo-button" id="balanceRefreshButton">새로고침</button>
+        <button class="demo-button" id="logoutButton">로그아웃</button>
+      </div>
+    </header>
+
+
+    <div class="nav-item u-category-windows">
+        <h4 class="nav-category" style="color:#353535;">
+            <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-communication"></use></svg>
+            SAVEWON TOKEN
+          </h4>
+          <button type="button" id="button-ipc" data-section="ipc" class="nav-button">SAVEWON 개별 전송</em></button>
+          <button type="button" id="button-multi" data-section="multi" class="nav-button">SAVEWON 대량 전송</em></button>
+    </div>
+
+    <div class="nav-item u-category-communication">
+      <h4 class="nav-category" style="color:#353535;">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+        ETHEREUM
+      </h4>
+      <button type="button" id="button-ether" data-section="ether" class="nav-button">ETHER 전송</button>
+    </div>
+
+    <div class="nav-item u-category-menu">
+      <h4 class="nav-category" style="color:#353535;">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
+        백업
+      </h4>
+      <button type="button" id="button-backup" data-section="backup" class="nav-button">지갑정보 백업하기</button>
+    </div>
+
+    <!-- <div class="nav-item u-category-communication">
+      <h5 class="nav-category">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-communication"></use></svg>
+        전송
+      </h5>
+      <button type="button" id="button-ipc" data-section="ipc" class="nav-button">전송하기</em></button>
+    </div> -->
+
+    <div class="nav-item u-category-system">
+      <h5 class="nav-category" style="color:#353535; ">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-system"></use></svg>
+        전송내역
+      </h5>
+      <button type="button" id="button-transactions" data-section="transactions" class="nav-button" >전송내역확인</button>
+    </div>
+
+    <footer class="nav-footer">
+      <button type="button" id="button-about" data-modal="about" class="nav-footer-button">SaveWon</button>
+      <a class="nav-footer-logo" href="https://www.savewon.io" aria-label="Homepage">
+        SaveWon.io
+      </a>
+    </footer>
+  </nav>
+
+  <main class="content js-content"></main>
+
+  <script>
+  const {app, BrowserWindow, ipcMain} = require('electron')
+  const { checkNetworkStatus } = require('check-network-status');
+   checkNetworkStatus({
+       timeout: 3000,
+       backUpURL: 'https://example.com',
+       pingDomain: 'github.com',
+       method: 'GET'
+   }).then(function(result){
+     if(!result){
+       alert('인터넷 연결을 확인해주세요.')
+     }
+   });
+   require('./src/renderer/walletInfo')
+   require('./assets/imports')
+   require('./assets/ex-links')
+   require('./assets/nav')
+   require('./assets/code-blocks')
+  </script>
+</body>
+</html>

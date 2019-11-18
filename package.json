@@ -1,0 +1,66 @@
+{
+  "name": "savewon_company_wallet",
+  "version": "1.0.0",
+  "description": "savewon company wallet",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --debug",
+    "package": "npm-run-all package:*",
+    "package:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=out --icon=assets/app-icon/mac/app.icns --osx-sign.identity='Developer ID Application: GitHub' --extend-info=assets/mac/info.plist",
+    "package:win": "electron-packager . --overwrite --platform=win32 --arch=x64 --out=out --icon=assets/app-icon/win/app.ico",
+    "package:linux": "electron-packager . --overwrite --platform=linux --arch=x64 --out=out",
+    "package:sign-exe": "signcode './out/savewon_company_wallet/savewon_wallet.exe' --cert ~/savewon_wallet.p12 --prompt --name 'savewon_company_wallet' --url 'https://savewon.io'",
+    "package:installer": "node ./script/installer.js",
+    "package:sign-installer": "signcode './out/windows-installer/savewon_walletSetup.exe' --cert ~/savewon_wallet.p12 --prompt --name 'savewon_company_wallet' --url 'https://savewon.io'",
+    "xpackage:mas": "./script/mas.sh",
+    "windows-store": "node ./script/windows-store.js",
+    "release": "node ./script/release.js",
+    "prepack": "check-for-leaks",
+    "prepush": "check-for-leaks"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/savewon/savewon_company_wallet.git"
+  },
+  "keywords": [
+    "savewon"
+  ],
+  "author": "devjinjin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/savewon/savewon_company_wallet/issues"
+  },
+  "homepage": "https://github.com/savewon/savewon_company_wallet#readme",
+  "dependencies": {
+    "app-root-path": "^2.2.1",
+    "big-number": "^2.0.0",
+    "check-network-status": "^1.2.2",
+    "dialog": "^0.3.1",
+    "dotenv": "^8.0.0",
+    "electron-log": "^2.2.14",
+    "electron-progressbar": "^1.2.0",
+    "electron-settings": "^3.2.0",
+    "ethereumjs-tx": "^1.3.7",
+    "ethers": "^4.0.27",
+    "ethjs-account": "^0.1.4",
+    "glob": "^7.1.4",
+    "highlight.js": "^9.15.6",
+    "md5": "^2.2.1",
+    "mkdirp": "^0.5.1",
+    "quick-encrypt": "^1.0.8",
+    "web3": "^1.0.0-beta.48",
+    "web3-hdwallet-provider": "^1.0.4-fix2",
+    "windows-build-tools": "^5.1.0",
+    "write-json-file": "^3.2.0",
+    "xlsx": "^0.14.3"
+  },
+  "devDependencies": {
+    "devtron": "^1.4.0",
+    "electron": "^4.1.4",
+    "electron-builder": "^20.40.2",
+    "electron-installer-windows": "^1.1.1",
+    "electron-packager": "^12.2.0",
+    "electron-rebuild": "^1.8.4"
+  }
+}
