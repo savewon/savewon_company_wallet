@@ -45,7 +45,7 @@
     "ethers": "^4.0.27",
     "ethjs-account": "^0.1.4",
     "glob": "^7.1.4",
-    "highlight.js": "^9.15.6",
+    "highlight.js": "^10.1.2",
     "md5": "^2.2.1",
     "mkdirp": "^0.5.1",
     "quick-encrypt": "^1.0.8",
